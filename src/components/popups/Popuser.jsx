@@ -1,6 +1,6 @@
-export default function PopUser({ onClose }) {
+export default function PopUser({ show, onClose }) {
   return (
-    <div className="header__pop-user-set pop-user-set" id="user-set-target">
+    <div className={`header__pop-user-set pop-user-set ${show ? '_show' : ''}`} id="user-set-target">
       <p className="pop-user-set__name">Ivan Ivanov</p>
       <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
       <div className="pop-user-set__theme">
@@ -11,5 +11,5 @@ export default function PopUser({ onClose }) {
         <a href="#">Выйти</a>
       </button>
     </div>
-  )
+  );
 }
