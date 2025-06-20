@@ -8,6 +8,7 @@ export default function Header() {
     <header className="header">
       <div className="container">
         <div className="header__block">
+
           <div className="header__logo _show _light">
             <a href="" target="_self">
               <img src="/images/logo.png" alt="logo" />
@@ -24,25 +25,24 @@ export default function Header() {
             <button className="header__btn-main-new _hover01" id="btnMainNew">
               <a href="#popNewCard">Создать новую задачу</a>
             </button>
-
-            <div style={{ position: 'relative' }}>
-              <a
-                href="#user-set-target"
-                className="header__user _hover02"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsPopupOpen(true);
-                }}
-              >
-                Ivan Ivanov
-              </a>
-            </div>
+<div style={{ position: 'relative' }}>
+  <a
+    href="#user-set-target"
+    className="header__user _hover02"
+    onClick={(e) => {
+      e.preventDefault();
+      setIsPopupOpen(true);
+    }}
+  >
+    Ivan Ivanov
+  </a>
+</div>
           </nav>
         </div>
       </div>
 
-      {/* Попап рендерим условно */}
-      <PopUser show={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+      {/* Попап пользователя */}
+      {isPopupOpen && <PopUser onClose={() => setIsPopupOpen(false)} />}
     </header>
   );
 }

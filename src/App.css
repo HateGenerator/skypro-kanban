@@ -78,13 +78,6 @@ body {
   color: #FFFFFF;
 }
 
-.pop-user-set:target,
-.pop-exit:target,
-.pop-new-card:target,
-.pop-browse:target {
-  display: block;
-}
-
 ._orange {
   background-color: #FFE4C2;
   color: #FF6D00;
@@ -777,15 +770,15 @@ body {
   padding: 0;
 }
 
-.header__pop-user-set.pop-user-set {
-  display: none; /* По умолчанию скрыт */
+.header__pop-user-set {
+  
 }
 
-.header__pop-user-set.pop-user-set._show {
+.header__pop-user-set {
   display: block;
   position: absolute;
-  top: 45px; /* Высота хедера */
-  left: 0; /* Теперь левее */
+  top: 60px;
+  right: 700px;
   width: 213px;
   border-radius: 10px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
@@ -794,7 +787,6 @@ body {
   padding: 20px;
   z-index: 1000;
 }
-
 .main {
   width: 100%;
   background-color: #EAEEF6;
