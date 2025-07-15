@@ -7,7 +7,7 @@ export default function PopUser({ onClose }) {
         <p>Темная тема</p>
         <input type="checkbox" className="checkbox" name="checkbox" />
       </div>
-      <button type="button" className="_hover03" onClick={onClose}>
+      <button type="button" className="pop-user-set__exit" onClick={onClose}>
         Выйти
       </button>
     </div>

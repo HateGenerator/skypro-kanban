@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import PopUser from '../popups/PopUser';
+import { StyledHeader, Container, HeaderBlock, HeaderLogo, HeaderNav, HeaderBtnMainNew, HeaderUser } from './Header.styled';
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -31,42 +32,40 @@ export default function Header() {
   }, [isPopupOpen]);
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
-          <div className="header__logo _show _light">
+    <StyledHeader>
+      <Container>
+        <HeaderBlock>
+          <HeaderLogo className="_show _light">
             <a href="" target="_self">
               <img src="/images/logo.png" alt="logo" />
             </a>
-          </div>
-
-          <div className="header__logo _dark">
+          </HeaderLogo>
+          <HeaderLogo className="_dark">
             <a href="" target="_self">
               <img src="/images/logo_dark.png" alt="logo" />
             </a>
-          </div>
-
-          <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" id="btnMainNew">
+          </HeaderLogo>
+          <HeaderNav>
+            <HeaderBtnMainNew className="_hover01" id="btnMainNew">
               <a href="#popNewCard">Создать новую задачу</a>
-            </button>
+            </HeaderBtnMainNew>
             <div style={{ position: 'relative' }}>
-              <a
+              <HeaderUser
                 href="#user-set-target"
-                className="header__user _hover02"
+                className="_hover02"
                 onClick={togglePopup}
               >
                 Ivan Ivanov
-              </a>
+              </HeaderUser>
               {isPopupOpen && (
                 <div ref={popupRef}>
                   <PopUser onClose={closePopup} />
                 </div>
               )}
             </div>
-          </nav>
-        </div>
-      </div>
-    </header>
+          </HeaderNav>
+        </HeaderBlock>
+      </Container>
+    </StyledHeader>
   );
 }

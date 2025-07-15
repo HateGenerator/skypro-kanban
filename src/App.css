@@ -213,6 +213,7 @@ body {
   letter-spacing: -0.14px;
   margin-bottom: 4px;
 }
+
 .pop-user-set__mail {
   color: #94A6BE;
   font-size: 14px;
@@ -220,18 +221,22 @@ body {
   letter-spacing: -0.14px;
   margin-bottom: 10px;
 }
+
 .pop-user-set__theme {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Центрирование переключателя и текста */
   margin-bottom: 30px;
 }
+
 .pop-user-set__theme p {
   color: #000;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
+  margin-right: 10px; /* Отступ от чекбокса */
 }
+
 .pop-user-set__theme input[type=checkbox] {
   position: relative;
   width: 24px;
@@ -240,9 +245,10 @@ body {
   background: #EAEEF6;
   outline: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
+
 .pop-user-set__theme input[type=checkbox]::before {
   content: "";
   position: absolute;
@@ -254,19 +260,46 @@ body {
   background-color: #94A6BE;
   transition: 0.5s;
 }
+
 .pop-user-set__theme input:checked[type=checkbox]::before {
   left: 12px;
 }
+
 .pop-user-set button {
-  width: 72px;
-  height: 30px;
-  background: transparent;
-  color: #565EEF;
-  border-radius: 4px;
-  border: 1px solid #565EEF;
+  appearance: none; /* Сброс дефолтных стилей */
 }
+
+.pop-user-set__exit {
+  width: 72px !important;
+  height: 30px !important;
+  appearance: none !important;
+  background: transparent !important;
+  color: #565EEF !important;
+  border-radius: 4px !important;
+  border: 1px solid #565EEF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.14px !important;
+  cursor: pointer !important;
+  margin: 0 auto !important;
+}
+
+.pop-user-set__exit:hover {
+  background-color: #E6E8FF !important; /* Легкий фон при наведении */
+  color: #33399b !important; /* Темнее текст при наведении */
+}
+
 .pop-user-set button a {
   color: #565EEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .pop-new-card {
@@ -771,8 +804,8 @@ body {
 
 .header__pop-user-set {
   position: absolute;
-  top: 41px; 
-  right: 10px; 
+  top: 41px;
+  right: 10px;
   width: 213px;
   border-radius: 10px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
@@ -782,13 +815,11 @@ body {
   z-index: 1000;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease; 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center; /* Центрирование текста */
 }
 
-.main {
-  width: 100%;
-  background-color: #EAEEF6;
-}
+
 .main__block {
   width: 100%;
   margin: 0 auto;
@@ -798,16 +829,9 @@ body {
   width: 100%;
   display: flex;
 }
-.main__column {
-  width: 20%;
-  margin: 0 auto;
-  display: block;
-}
 
-.column__title {
-  padding: 0 10px;
-  margin: 15px 0;
-}
+
+
 .column__title p {
   color: #94A6BE;
   font-size: 14px;
@@ -816,81 +840,24 @@ body {
   text-transform: uppercase;
 }
 
-.cards {
-  width: 100%;
-  display: block;
-  position: relative;
-}
-.cards__item {
-  padding: 5px;
-  animation-name: card-animation;
-  animation-duration: 500ms;
-  animation-timing-function: linear;
-}
-.cards__card {
-  width: 220px;
-  height: 130px;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: stretch;
-  padding: 15px 13px 19px;
-}
 
-.card__group {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.card__theme {
-  width: auto;
-  height: 20px;
-  padding: 5px 14px;
-  border-radius: 18px;
-}
+
+
+
 .card__theme p {
   font-size: 10px;
   font-weight: 600;
   line-height: 10px;
 }
-.card__btn {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 2px;
-}
+
 .card__btn div {
   width: 4px;
   height: 4px;
   border-radius: 50%;
   background-color: #94A6BE;
 }
-.card__title {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  color: #000000;
-  margin-bottom: 10px;
-}
-.card__content {
-  height: 64px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.card__date {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+
+
 .card__date svg {
   width: 13px;
 }
@@ -903,37 +870,12 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-  .main__block {
-    width: 100%;
-    margin: 0 auto;
-    padding: 40px 0 64px;
-  }
-  .main__content {
-    display: block;
-  }
+
   .main__column {
     width: 100%;
     margin: 0 auto;
     display: block;
-  }
-  .cards {
-    width: 100%;
-    display: flex;
-    overflow-y: auto;
-  }
-  .cards__card {
-    width: 220px;
-    height: 130px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: stretch;
-    padding: 15px 13px 19px;
-  }
-}
-@media screen and (max-width: 660px) {
+  }@media screen and (max-width: 660px) {
   .pop-new-card {
     top: 70px;
   }
@@ -995,17 +937,7 @@ body {
     width: 100%;
     padding: 0 16px;
   }
-  .header__btn-main-new {
-    z-index: 3;
-    position: fixed;
-    left: 16px;
-    bottom: 30px;
-    top: auto;
-    width: calc(100vw - 32px);
-    height: 40px;
-    border-radius: 4px;
-    margin-right: 0;
-  }
+
   .pop-new-card__container {
     padding: 0;
     justify-content: flex-start;
@@ -1081,13 +1013,7 @@ body {
   }
 }
 
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 18px;
-  color: #94A6BE;
+
+
+
 }
-
-
