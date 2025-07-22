@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Column from '../Column/Column';
 import Card from '../Card/Card';
 import data from '../../data';
+import { StyledMain, Container, MainBlock, MainContent, Loader } from './Main.styled';
 
 export const STATUSES = ['Без статуса', 'Нужно сделать', 'В работе', 'Готово'];
 
@@ -17,14 +18,14 @@ export default function Main() {
   }, []);
 
   if (loading) {
-    return <div className="loader">Данные загружаются...</div>;
+    return <Loader>Данные загружаются...</Loader>;
   }
 
   return (
-    <main className="main">
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
+    <StyledMain>
+      <Container>
+        <MainBlock>
+          <MainContent>
             {STATUSES.map((status) => (
               <Column key={status} status={status}>
                 {cards
@@ -34,9 +35,9 @@ export default function Main() {
                   ))}
               </Column>
             ))}
-          </div>
-        </div>
-      </div>
-    </main>
+          </MainContent>
+        </MainBlock>
+      </Container>
+    </StyledMain>
   );
 }

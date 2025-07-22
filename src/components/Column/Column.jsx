@@ -1,10 +1,12 @@
+import { ColumnContainer, ColumnTitle, Cards } from './Column.styled';
+
 export default function Column({ status, children }) {
   return (
-    <div className="main__column column">
-      <div className="column__title">
+    <ColumnContainer>
+      <ColumnTitle>
         <p>{status}</p>
-      </div>
-      <div className="cards">{children}</div>
-    </div>
+      </ColumnTitle>
+      <Cards>{children}</Cards>
+    </ColumnContainer>
   );
 }
