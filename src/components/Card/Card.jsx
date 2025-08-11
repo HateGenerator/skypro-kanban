@@ -5,7 +5,7 @@ export default function Card({ topic, title, date }) {
     <CardItem>
       <CardStyled>
         <CardGroup>
-          <CardTheme themeType={topic === 'Web Design' ? '_orange' : topic === 'Research' ? '_green' : '_purple'}>
+          <CardTheme $themeType={topic === 'Web Design' ? '_orange' : topic === 'Research' ? '_green' : '_purple'}>
             <p>{topic}</p>
           </CardTheme>
           <CardButton href="#popBrowse" target="_self">

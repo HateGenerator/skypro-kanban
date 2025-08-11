@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import PopUser from '../popups/PopUser';
-import { StyledHeader, Container, HeaderBlock, HeaderLogo, HeaderNav, HeaderBtnMainNew, HeaderUser } from './Header.styled';
+import { StyledHeader, HeaderBlock, HeaderLogo, HeaderNav, HeaderBtnMainNew, HeaderUser } from './Header.styled';
+import { Container } from '../Shared.styled'; // Импорт Container из Shared.styled.js
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

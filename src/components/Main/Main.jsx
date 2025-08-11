@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import Column from '../Column/Column';
 import Card from '../Card/Card';
 import data from '../../data';
-import { StyledMain, Container, MainBlock, MainContent, Loader } from './Main.styled';
-
-export const STATUSES = ['Без статуса', 'Нужно сделать', 'В работе', 'Готово'];
+import { StyledMain, MainBlock, MainContent, Loader } from './Main.styled';
+import { Container } from '../Shared.styled'; // Импорт Container из Shared.styled.js
+import { STATUSES } from '../../constants/statuses';
 
 export default function Main() {
   const [cards, setCards] = useState([]);
