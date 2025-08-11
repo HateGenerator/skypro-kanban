@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import MainPage from '../pages/MainPage';
@@ -9,24 +9,16 @@ import NotFoundPage from '../pages/NotFoundPage';
 import { useState } from 'react';
 
 const ProtectedRoute = ({ isAuth, children }) => {
-  console.log('ProtectedRoute isAuth:', isAuth); // Отладка
+  console.log('ProtectedRoute isAuth:', isAuth);
   if (!isAuth) {
     return <Navigate to="/login" replace />;
   }
   return children;
 };
 
-const PublicExitRoute = ({ isAuth, onLogout }) => {
-  const navigate = useNavigate();
-  console.log('PublicExitRoute isAuth:', isAuth); // Отладка
-  if (onLogout) {
-    onLogout();
-    console.log('PublicExitRoute: onLogout called');
-    navigate('/login'); // Перенаправление после выхода
-  } else {
-    console.log('PublicExitRoute: onLogout is undefined');
-  }
-  return <ExitPage />; // Рендерим ExitPage
+const PublicExitRoute = ({ isAuth, children, onLogout }) => {
+  console.log('PublicExitRoute isAuth:', isAuth, 'onLogout defined:', !!onLogout);
+  return children;
 };
 
 export default function AppRoutes() {
@@ -72,7 +64,7 @@ export default function AppRoutes() {
       />
       <Route
         path="/exit"
-        element={<PublicExitRoute isAuth={isAuth} onLogout={handleLogout} />}
+        element={<PublicExitRoute isAuth={isAuth} onLogout={handleLogout}><ExitPage onLogout={handleLogout} /></PublicExitRoute>}
       />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
