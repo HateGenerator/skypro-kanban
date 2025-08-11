@@ -1,14 +1,16 @@
-import './App.css'
-import Header from './components/Header/Header'
-import Main from './components/Main/Main'
+import { BrowserRouter } from 'react-router-dom';
+import { GlobalStyles } from './styles/GlobalStyles';
+import Header from './components/Header/Header';
+import AppRoutes from './components/AppRoutes';
 
 function App() {
   return (
-    <div className="wrapper">
+    <BrowserRouter>
+      <GlobalStyles />
       <Header />
-      <Main />
-    </div>
-  )
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -1,15 +1,9 @@
 import styled from 'styled-components';
+import { Container } from '../Shared.styled';
 
 export const StyledMain = styled.main`
   width: 100%;
   background-color: #EAEEF6;
-`;
-
-export const Container = styled.div`
-  max-width: 1260px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 30px;
 `;
 
 export const MainBlock = styled.div`
@@ -25,6 +19,7 @@ export const MainBlock = styled.div`
 export const MainContent = styled.div`
   width: 100%;
   display: flex;
+  gap: 19px;
 
   @media screen and (max-width: 1200px) {
     display: block;

@@ -1,17 +1,11 @@
 import styled from 'styled-components';
+import { Container } from '../Shared.styled';
 
 export const StyledHeader = styled.header`
   position: relative;
   width: 100%;
   margin: 0 auto;
   background-color: #FFFFFF;
-`;
-
-export const Container = styled.div`
-  max-width: 1260px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 30px;
 `;
 
 export const HeaderBlock = styled.div`
