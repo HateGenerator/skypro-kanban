@@ -3,11 +3,6 @@ import styled from 'styled-components';
 export const CardItem = styled.div`
   padding: 5px;
   animation: cardAnimation 500ms linear;
-  margin-bottom: 19px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 `;
 
 export const CardStyled = styled.div`
@@ -41,16 +36,16 @@ export const CardTheme = styled.div`
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
-  background-color: ${({ $themeType }) => {
-    switch ($themeType) {
+  background-color: ${({ themeType }) => {
+    switch (themeType) {
       case '_orange': return '#FFE4C2';
       case '_green': return '#B4FDD1';
       case '_purple': return '#E9D4FF';
       default: return '#FFF';
     }
   }};
-  color: ${({ $themeType }) => {
-    switch ($themeType) {
+  color: ${({ themeType }) => {
+    switch (themeType) {
       case '_orange': return '#FF6D00';
       case '_green': return '#06B16E';
       case '_purple': return '#9A48F1';
@@ -91,9 +86,9 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.a`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif; // Указываем шрифт
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500; // Толщина 500
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;

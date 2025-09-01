@@ -8,21 +8,19 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    width: 100%;
-    height: 100%;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: #EAEEF6;
     color: #000000;
   }
 
   a {
     text-decoration: none;
-    cursor: pointer;
   }
 
   button {
     cursor: pointer;
-    outline: none;
+    border: none;
+    background: none;
   }
-
-
 `;
