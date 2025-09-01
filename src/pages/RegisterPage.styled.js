@@ -1,39 +1,14 @@
 import styled from 'styled-components';
 
-export const RegisterContainer = styled.div`
-  max-width: 400px;
-  margin: 50px auto;
+export const StyledRegister = styled.div`
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
 `;
 
-export const Title = styled.h1`
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
-export const Input = styled.input`
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
-export const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: #565EEF;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #33399b;
-  }
+export const RegisterForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
 `;

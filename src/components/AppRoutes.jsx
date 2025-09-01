@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import MainPage from '../pages/MainPage';
@@ -6,18 +6,21 @@ import CardDetailPage from '../pages/CardDetailPage';
 import AddTaskPage from '../pages/AddTaskPage';
 import ExitPage from '../pages/ExitPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProtectedRoute = ({ isAuth, children }) => {
-  console.log('ProtectedRoute isAuth:', isAuth);
-  if (!isAuth) {
-    return <Navigate to="/login" replace />;
-  }
-  return children;
-};
+  const location = useLocation();
+  console.log('ProtectedRoute checked, isAuth:', isAuth, 'location:', location.pathname);
 
-const PublicExitRoute = ({ isAuth, children, onLogout }) => {
-  console.log('PublicExitRoute isAuth:', isAuth, 'onLogout defined:', !!onLogout);
+  useEffect(() => {
+    console.log('ProtectedRoute useEffect, isAuth:', isAuth);
+  }, [isAuth]); // Перерендеринг при изменении isAuth
+
+  if (!isAuth) {
+    console.log('Redirecting to /login from:', location.pathname);
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+  console.log('Rendering protected content');
   return children;
 };
 
@@ -25,14 +28,18 @@ export default function AppRoutes() {
   const [isAuth, setIsAuth] = useState(false);
 
   const handleLogin = () => {
+    console.log('handleLogin called, setting isAuth to true');
     setIsAuth(true);
-    console.log('handleLogin executed, isAuth set to:', true);
   };
 
   const handleLogout = () => {
+    console.log('handleLogout called, setting isAuth to false');
     setIsAuth(false);
-    console.log('handleLogout executed, isAuth set to:', false);
   };
+
+  useEffect(() => {
+    console.log('AppRoutes isAuth updated:', isAuth);
+  }, [isAuth]); // Отслеживаем изменения isAuth на уровне AppRoutes
 
   return (
     <Routes>
@@ -64,7 +71,7 @@ export default function AppRoutes() {
       />
       <Route
         path="/exit"
-        element={<PublicExitRoute isAuth={isAuth} onLogout={handleLogout}><ExitPage onLogout={handleLogout} /></PublicExitRoute>}
+        element={<ExitPage onLogout={handleLogout} />}
       />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
