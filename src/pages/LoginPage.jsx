@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { StyledLogin, LoginForm, LoginButton } from './LoginPage.styled';
 
 export default function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate(); // Хук для навигации
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +15,8 @@ export default function LoginPage({ onLogin }) {
       try {
         console.log('Calling onLogin');
         await onLogin();
-        console.log('Login completed, should redirect');
+        console.log('Login completed, redirecting to /');
+        navigate('/'); // Редирект на главную страницу
       } catch (error) {
         console.error('Login failed:', error);
       } finally {
@@ -32,7 +35,7 @@ export default function LoginPage({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          disabled={isSubmitting} // Блокируем ввод во время отправки
+          disabled={isSubmitting}
         />
         <LoginButton type="submit" disabled={isSubmitting}>
           Login

@@ -1,36 +1,25 @@
 import styled from 'styled-components';
-import { Container } from '../Shared.styled';
 
 export const StyledMain = styled.main`
-  width: 100%;
-  background-color: #EAEEF6;
+  padding: 20px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
 `;
 
 export const MainBlock = styled.div`
-  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 25px 0 49px;
-
-  @media screen and (max-width: 1200px) {
-    padding: 40px 0 64px;
-  }
 `;
 
 export const MainContent = styled.div`
-  width: 100%;
   display: flex;
   gap: 19px;
-
-  @media screen and (max-width: 1200px) {
-    display: block;
-  }
+  width: 100%;
+  flex-wrap: wrap; /* Для адаптивности */
 `;
 
 export const Loader = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 18px;
-  color: #94A6BE;
+  text-align: center;
+  padding: 20px;
+  color: #666;
 `;

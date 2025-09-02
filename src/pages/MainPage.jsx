@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Column from '../components/Column/Column';
-import Card from '../components/Card/Card';
+import { ColumnContainer, ColumnTitle, Cards } from '../components/Column/Column.styled';
+import { CardItem, CardStyled, CardGroup, CardTheme, CardButton, CardContent, CardTitle, CardDate } from '../components/Card/Card.styled';
 import cards from '../data';
 import { StyledMain, MainBlock, MainContent, Loader } from './MainPage.styled';
 import { Container } from '../components/Shared.styled';
@@ -24,7 +24,7 @@ export default function MainPage() {
 
   console.log('MainPage rendering, cardsData:', cardsData, 'STATUSES:', STATUSES);
   if (cardsData.length === 0) {
-    return <div>No cards to display</div>; // Отладочный вывод
+    return <div>No cards to display</div>;
   }
 
   return (
@@ -33,13 +33,45 @@ export default function MainPage() {
         <MainBlock>
           <MainContent>
             {STATUSES.map((status) => (
-              <Column key={status} status={status}>
-                {cardsData
-                  .filter((card) => card.status === status)
-                  .map((card) => (
-                    <Card key={card.id} {...card} />
-                  ))}
-              </Column>
+              <ColumnContainer key={status}>
+                <ColumnTitle>
+                  <p>{status}</p>
+                </ColumnTitle>
+                <Cards>
+                  {cardsData
+                    .filter((card) => card.status === status)
+                    .map((card) => {
+                      const themeType = {
+                        'Web Design': '_orange',
+                        'Research': '_green',
+                        'Copywriting': '_purple',
+                      }[card.topic] || '';
+                      return (
+                        <CardItem key={card.id}>
+                          <CardStyled>
+                            <CardGroup>
+                              <CardTheme themeType={themeType}>
+                                <p>{card.topic}</p>
+                              </CardTheme>
+                              <CardButton href="#">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                              </CardButton>
+                            </CardGroup>
+                            <CardContent>
+                              <CardTitle href="#">{card.title}</CardTitle>
+                              <CardDate>
+                                {/* SVG для даты можно добавить, если есть */}
+                                <p>{card.date}</p>
+                              </CardDate>
+                            </CardContent>
+                          </CardStyled>
+                        </CardItem>
+                      );
+                    })}
+                </Cards>
+              </ColumnContainer>
             ))}
           </MainContent>
         </MainBlock>

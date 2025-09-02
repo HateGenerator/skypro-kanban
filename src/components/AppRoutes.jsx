@@ -14,7 +14,7 @@ const ProtectedRoute = ({ isAuth, children }) => {
 
   useEffect(() => {
     console.log('ProtectedRoute useEffect, isAuth:', isAuth);
-  }, [isAuth]); // Перерендеринг при изменении isAuth
+  }, [isAuth]);
 
   if (!isAuth) {
     console.log('Redirecting to /login from:', location.pathname);
@@ -39,7 +39,7 @@ export default function AppRoutes() {
 
   useEffect(() => {
     console.log('AppRoutes isAuth updated:', isAuth);
-  }, [isAuth]); // Отслеживаем изменения isAuth на уровне AppRoutes
+  }, [isAuth]);
 
   return (
     <Routes>
