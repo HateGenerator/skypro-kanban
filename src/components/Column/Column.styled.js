@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
 export const ColumnContainer = styled.div`
-  width: 20%;
+  width: 18%;
   margin: 0 auto;
   display: block;
+  margin-right: 19px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   @media screen and (max-width: 1200px) {
     width: 100%;
+    margin-right: 0;
   }
 `;
 
@@ -31,5 +37,6 @@ export const Cards = styled.div`
   @media screen and (max-width: 1200px) {
     display: flex;
     overflow-y: auto;
+    gap: 19px;
   }
 `;

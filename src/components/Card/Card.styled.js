@@ -5,7 +5,7 @@ export const CardItem = styled.div`
   animation: cardAnimation 500ms linear;
 `;
 
-export const CardStyled = styled.div` // Изменил с Card на CardStyled
+export const CardStyled = styled.div`
   width: 220px;
   height: 130px;
   background-color: #FFFFFF;
@@ -86,8 +86,9 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.a`
+  font-family: 'Roboto', sans-serif; // Указываем шрифт
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500; // Толщина 500
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;

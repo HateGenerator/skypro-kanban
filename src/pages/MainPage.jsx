@@ -62,7 +62,7 @@ export default function MainPage() {
                             <CardContent>
                               <CardTitle href="#">{card.title}</CardTitle>
                               <CardDate>
-                                <svg /* SVG для иконки даты */ />
+                                {/* SVG для даты можно добавить, если есть */}
                                 <p>{card.date}</p>
                               </CardDate>
                             </CardContent>

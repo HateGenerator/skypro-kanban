@@ -9,13 +9,14 @@ export const StyledMain = styled.main`
 export const MainBlock = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const MainContent = styled.div`
   display: flex;
-  gap: 19px;
+  gap: 20px;
   width: 100%;
-  flex-wrap: wrap; /* Для адаптивности */
 `;
 
 export const Loader = styled.div`

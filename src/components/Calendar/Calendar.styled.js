@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const StyledCalendar = styled.div`
   width: 100%;
+  max-width: 600px; // Ограничим ширину, можно настроить под макет
+  margin: 0 auto; // Центрируем
   padding: 20px;
   background-color: #FFFFFF;
   border-radius: 10px;
@@ -68,7 +70,7 @@ export const DayName = styled.div`
   text-align: center;
 
   &.-weekend- {
-    color: #FF6D00; // Пример цвета для выходных, можно настроить
+    color: #FF6D00;
   }
 `;
 
@@ -89,7 +91,7 @@ export const CalendarCell = styled.div`
   cursor: pointer;
 
   &._other-month {
-    color: #94A6BE; // Серая цвет для дней других месяцев
+    color: #94A6BE;
   }
 
   &._cell-day {
@@ -97,7 +99,7 @@ export const CalendarCell = styled.div`
   }
 
   &._weekend {
-    color: #FF6D00; // Цвет для выходных
+    color: #FF6D00;
   }
 
   &:hover {
